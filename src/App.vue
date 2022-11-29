@@ -2,9 +2,7 @@
   <div id="app">
     <HeaderComp />
     <input @keyup.enter="cercafilm" v-model="film" type="text" />
-    <MainComp v-for="(elem, index) in film"
-          :key="index"
-          :card="elem"/>
+    <MainComp :card="dataFilm"/>
   </div>
 </template>
 
@@ -21,7 +19,7 @@ export default {
   },
   data() {
     return {
-      dataFilm: "",
+      dataFilm: [],
       film: "",
     };
   },
@@ -34,7 +32,10 @@ export default {
             this.film
         )
         .then((response) => {
-          console.log(response.data);
+          console.log(response.data.results);
+          //selezionare la varibaile di riferimento inizialmente vuota
+          //abbinare i dati recuperati dall'axios
+          this.dataFilm = response.data.results
         });
     },
   },

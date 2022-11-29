@@ -16,13 +16,13 @@ export default {
     FilmList
   },
   props: {
-    card: Object,
+    card: Array,
   },
   methods : {
 
   },
   mounted() {
-    console.log(this.card.original_title + "main")
+    //console.log(this.card.original_title + "main")
   },
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>FILMList TEXT</h1>
+        <h1>{{card.original_title}}</h1>
         <FilmCards />
     </div>
 </template>
@@ -12,6 +12,9 @@ export default {
   name: "FilmList" ,
   components: {
     FilmCards
+  },
+  props: {
+    card: Object,
   },
 };
 </script>
