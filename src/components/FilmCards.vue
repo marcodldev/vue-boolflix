@@ -1,15 +1,15 @@
 <template>
-    <div>
-        
-    </div>
+  <div>
+    <h2>FilmCards test</h2>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "FilmCard",
-  components: {},
-};
+    name: "FilmCards",
+}
 </script>
 
 <style lang="scss" scoped>
+
 </style>

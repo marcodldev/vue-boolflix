@@ -1,17 +1,19 @@
 <template>
   <div>
-    <FilmCard />
-  </div>
+    <FilmList v-for="(elem, index) in card"
+          :key="index"
+          :card="elem"/>
+  </div> 
 </template>
 
 <script>
-import FilmCard from "./FilmCard.vue"
+import FilmList from "./FilmList.vue"
 
 
 export default {
   name: "MainComp",
   components: {
-    FilmCard
+    FilmList
   },
   props: {
     card: Object,
@@ -20,7 +22,7 @@ export default {
 
   },
   mounted() {
-    console.log(this.card + "main")
+    console.log(this.card.original_title + "main")
   },
 }
 </script>
