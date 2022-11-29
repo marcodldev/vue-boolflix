@@ -12,7 +12,9 @@
         <p>{{this.transvote()}}</p>
         <p class="card-text">   
           {{ card.overview }}
+          
         </p>
+        <font-awesome-icon icon="fa-solid fa-star" />
       </div>
     </div>
     <h1></h1>
