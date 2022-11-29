@@ -1,7 +1,9 @@
 <template>
-  <div id="app">
+  <div id="app" class="bg-black overflow-auto">
     <HeaderComp />
-    <input @keyup.enter="cercafilm" v-model="film" type="text" />
+    <div class="p-2">
+      <input class="p-2" @keyup.enter="cercafilm" v-model="film" type="text" />
+    </div>
     <MainComp :card="dataFilm"/>
   </div>
 </template>

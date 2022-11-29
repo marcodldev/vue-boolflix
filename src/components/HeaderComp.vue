@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-black text-danger ">
     <h1>Boolflix</h1>
     <!-- <input type="text"> -->
   </div>
@@ -15,4 +15,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 </style>

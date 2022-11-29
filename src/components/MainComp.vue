@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-black d-flex container flex-wrap overflow-auto">
     <FilmList v-for="(elem, index) in card"
           :key="index"
           :card="elem"/>
