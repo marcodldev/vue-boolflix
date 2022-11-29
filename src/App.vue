@@ -1,33 +1,44 @@
 <template>
   <div id="app">
     <HeaderComp />
-    <MainComp />
+    <input @keyup.enter="cercafilm" v-model="film" type="text" />
+    <MainComp v-for="(elem, index) in film"
+          :key="index"
+          :card="elem"/>
   </div>
 </template>
 
 <script>
-import HeaderComp from './components/HeaderComp.vue'
-import MainComp from './components/MainComp.vue'
-import axios from 'axios'
+import HeaderComp from "./components/HeaderComp.vue";
+import MainComp from "./components/MainComp.vue";
+import axios from "axios";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     HeaderComp,
-    MainComp
+    MainComp,
   },
-  data: {
-    return :{
-      dataFilm: ''
-    }
+  data() {
+    return {
+      dataFilm: "",
+      film: "",
+    };
   },
-  mounted () {
-      axios.get('https://api.themoviedb.org/3/movie/550?api_key=4574f1010abd642412416a37ebde8b6d&query=string')
-      .then((response) => {
-        console.log(response)
-      })
+  mounted() {},
+  methods: {
+    cercafilm() {
+      axios
+        .get(
+          "https://api.themoviedb.org/3/search/movie?api_key=4574f1010abd642412416a37ebde8b6d&query=" +
+            this.film
+        )
+        .then((response) => {
+          console.log(response.data);
+        });
+    },
   },
-}
+};
 </script>
 
 <style lang="scss">

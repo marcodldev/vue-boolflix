@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Boolflix</h1>
-    <input type="text">
+    <!-- <input type="text"> -->
   </div>
 </template>
 
