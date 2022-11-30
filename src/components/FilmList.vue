@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="">
     <div class="card m-2" style="width: 14rem">
       <img
         :src="`http://image.tmdb.org/t/p/w342/${card.poster_path}`"
@@ -94,7 +94,7 @@ export default {
   display: none;
 }
 
-.display :hover {
+.card:hover .display{ 
   display: block;
 }
 
