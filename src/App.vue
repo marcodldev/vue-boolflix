@@ -2,7 +2,7 @@
   <div id="app" class="bg-black overflow-auto">
     <HeaderComp />
     <div class="p-2">
-      <input class="p-2" @keyup.enter="cercafilm" v-model="film" type="text" />
+      <input class="p-2" @keyup.enter ="cercafilm " v-model="film" type="text" />
     </div>
     <MainComp :card="dataFilm"/>
   </div>
@@ -22,6 +22,7 @@ export default {
   data() {
     return {
       dataFilm: [],
+      dataSerie: [],
       film: "",
     };
   },
@@ -39,7 +40,28 @@ export default {
           //abbinare i dati recuperati dall'axios
           this.dataFilm = response.data.results
         });
+
+        axios
+        .get(
+          "https://api.themoviedb.org/3/search/tv?api_key=4574f1010abd642412416a37ebde8b6d&query=" +
+            this.film
+        )
+        .then((response) => {
+          console.log(response.data.results);
+          this.dataFilm = response.data.results
+        });
     },
+    // cercaSerie() {
+    //   axios
+    //     .get(
+    //       "https://api.themoviedb.org/3/search/tv?api_key=4574f1010abd642412416a37ebde8b6d&query=" +
+    //         this.film
+    //     )
+    //     .then((response) => {
+    //       console.log(response.data.results);
+    //       this.dataFilm = response.data.results
+    //     });
+    // },
   },
 };
 </script>

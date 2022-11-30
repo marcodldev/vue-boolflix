@@ -7,14 +7,21 @@
         alt="..."
       />
       <div class="card-body cardbodycustom">
-        <h5 class="card-title">{{ card.original_title }}</h5>
-        <h6>{{ card.original_language }} "{{ card.original_title }}"</h6>
-        <p>{{this.transvote()}}</p>
-        <p class="card-text">   
+        <h5 class="card-title">{{ card.original_title }} {{ card.name }}</h5>
+        <h6>{{ card.original_language }} {{ card.original_title }}</h6>
+        <img :src="`../assets/${card.original_language}.png`" alt="">
+        <font-awesome-icon
+          v-for="(elem, index) in transvote()"
+          :key="index"
+          icon="fa-solid fa-star"
+        style="color:orange" />
+         <font-awesome-icon  v-for="(elem, index) in transvote2()"
+          :key="index" icon="fa-regular fa-star" style="color:orange" /> 
+        <p class="card-text">
           {{ card.overview }}
-          
         </p>
-        <font-awesome-icon icon="fa-solid fa-star" />
+
+        
       </div>
     </div>
     <h1></h1>
@@ -22,34 +29,49 @@
 </template>
 
 <script>
-
 export default {
   name: "FilmList",
   components: {},
+  data() {
+    return {
+      stars : 0,
+      starsVuote : 0,
+    };
+  },
   props: {
     card: Object,
   },
   methods: {
-  transvote (){
-    let stars = parseInt(this.card.vote_average)
-      if (this.card.vote_average > 5) {
-        return 5
+    transvote() {
+      this.stars = (parseInt(this.card.vote_average) / 2);
+      if (this.stars > 5) {
+        return 5;
+      } else if (this.stars < 5) {
+        return parseInt(this.stars);
       }
-    return stars 
-  }
-},
-mounted() {
-  this.transvote (),
-  // console.log(parseInt(this.card.vote_average))
-  console.log(this.transvote());
-},
-}
+    },
+    transvote2() {
+      this.starsVuote = 5 - this.stars
+      return this.starsVuote
+    },
+  },
+  mounted() {
+    this.transvote(),
+      // console.log(parseInt(this.card.vote_average))
+      console.log(this.transvote());
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 .cardbodycustom {
   max-height: 300px;
   min-height: 300px;
-  overflow: auto;
+  overflow: auto ;
+}
+
+.card-body.cardbodycustom {
+    background-color: black;
+    color: white;
 }
 </style>
