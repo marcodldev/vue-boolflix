@@ -6,24 +6,32 @@
         class="card-img-top"
         alt="..."
       />
-      <div class="card-body cardbodycustom">
-        <h5 class="card-title">{{ card.original_title }} {{ card.name }}</h5>
-        <h6>{{ card.original_title }}</h6>
-        <div class="imgcustom">
-          <img :src="require(`../assets/${card.original_language}.png`)" alt="">
+      <div class="display">
+        <div class="card-body cardbodycustom">
+          <h5 class="card-title">{{ card.original_title }} {{ card.name }}</h5>
+          <h6>{{ card.original_title }}</h6>
+          <div class="imgcustom">
+            <img
+              :src="require(`../assets/${card.original_language}.png`)"
+              alt=""
+            />
+          </div>
+          <font-awesome-icon
+            v-for="(elem, index) in transvote()"
+            :key="index"
+            icon="fa-solid fa-star"
+            style="color: orange"
+          />
+          <font-awesome-icon
+            v-for="(elem, index) in transvote2()"
+            :key="index"
+            icon="fa-regular fa-star"
+            style="color: orange"
+          />
+          <p class="card-text">
+            {{ card.overview }}
+          </p>
         </div>
-        <font-awesome-icon
-          v-for="(elem, index) in transvote()"
-          :key="index"
-          icon="fa-solid fa-star"
-        style="color:orange" />
-         <font-awesome-icon  v-for="(elem, index) in transvote2()"
-          :key="index" icon="fa-regular fa-star" style="color:orange" /> 
-        <p class="card-text">
-          {{ card.overview }}
-        </p>
-
-        
       </div>
     </div>
     <h1></h1>
@@ -36,8 +44,8 @@ export default {
   components: {},
   data() {
     return {
-      stars : 0,
-      starsVuote : 0,
+      stars: 0,
+      starsVuote: 0,
     };
   },
   props: {
@@ -45,7 +53,7 @@ export default {
   },
   methods: {
     transvote() {
-      this.stars = (parseInt(this.card.vote_average) / 2);
+      this.stars = parseInt(this.card.vote_average) / 2;
       if (this.stars > 5) {
         return 5;
       } else if (this.stars < 5) {
@@ -53,8 +61,8 @@ export default {
       }
     },
     transvote2() {
-      this.starsVuote = 5 - this.stars
-      return this.starsVuote
+      this.starsVuote = 5 - this.stars;
+      return this.starsVuote;
     },
   },
   mounted() {
@@ -69,16 +77,28 @@ export default {
 .cardbodycustom {
   max-height: 300px;
   min-height: 300px;
-  overflow: auto ;
+  overflow: auto;
 }
 
 .card-body.cardbodycustom {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 .imgcustom img {
-    vertical-align: middle;
-    width: 30px;
+  vertical-align: middle;
+  width: 30px;
+}
+
+.display {
+  display: none;
+}
+
+.display :hover {
+  display: block;
+}
+
+.card :hover {
+  opacity: 0.9;
 }
 </style>
