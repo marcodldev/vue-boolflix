@@ -8,8 +8,10 @@
       />
       <div class="card-body cardbodycustom">
         <h5 class="card-title">{{ card.original_title }} {{ card.name }}</h5>
-        <h6>{{ card.original_language }} {{ card.original_title }}</h6>
-        <img :src="`../assets/${card.original_language}.png`" alt="">
+        <h6>{{ card.original_title }}</h6>
+        <div class="imgcustom">
+          <img :src="require(`../assets/${card.original_language}.png`)" alt="">
+        </div>
         <font-awesome-icon
           v-for="(elem, index) in transvote()"
           :key="index"
@@ -73,5 +75,10 @@ export default {
 .card-body.cardbodycustom {
     background-color: black;
     color: white;
+}
+
+.imgcustom img {
+    vertical-align: middle;
+    width: 30px;
 }
 </style>
