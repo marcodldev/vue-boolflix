@@ -1,15 +1,15 @@
 <template>
-  <div class="bg-black d-flex container flex-wrap overflow-auto">
+  <div class="bg-black d-flex container-fluid flex-wrap overflow-auto">
     
-    <div class="container text-light">
+    <div class="container-fluid text-light">
       <h1 v-if="card != '' " >Movies</h1>
-      <div class="d-flex container overflow-auto flex-nowrap">
+      <div class="d-flex container-fluid overflow-auto flex-nowrap">
         <FilmList v-for="(elem, index) in card" :key="index" :card="elem" />
       </div>
     </div>
-    <div class="container text-light">
+    <div class="container-fluid text-light">
       <h1 v-if="tvcard != '' ">Series</h1>
-      <div class="d-flex container overflow-auto flex-nowrap">
+      <div class="d-flex container-fluid overflow-auto flex-nowrap scroll">
         <TvList v-for="(elem, index) in tvcard" :key="index" :tvcard="elem" />
       </div>
     </div>
@@ -38,4 +38,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+::-webkit-scrollbar {
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(160, 8, 8);
+}
+
+::-webkit-scrollbar-track {
+  background-color: black;
+}
+
 </style>
