@@ -4,7 +4,7 @@
     <div class="p-2">
       <input class="p-2" @keyup.enter ="cercafilm " v-model="film" type="text" />
     </div>
-    <MainComp :card="dataFilm"/>
+    <MainComp :card="dataFilm" :tvcard="dataSerie"/>
   </div>
 </template>
 
@@ -48,7 +48,7 @@ export default {
         )
         .then((response) => {
           console.log(response.data.results);
-          this.dataFilm = response.data.results
+          this.dataSerie = response.data.results
         });
     },
     // cercaSerie() {
