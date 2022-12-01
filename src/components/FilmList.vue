@@ -9,7 +9,7 @@
       <div class="display border rounded-2">
         <div class="card-body cardbodycustom">
           <h5 class="card-title">{{ card.original_title }} {{ card.name }}</h5>
-          <h6>{{ card.original_title }}</h6>
+          <h6 class="text-custom">{{ card.original_title }}</h6>
           <div class="imgcustom">
             <img
               :src="require(`../assets/${card.original_language}.png`)"
@@ -28,7 +28,7 @@
             icon="fa-regular fa-star"
             style="color: orange"
           />
-          <p class="card-text">
+          <p class="card-text text-custom">
             {{ card.overview }}
           </p>
         </div>
@@ -74,6 +74,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.text-custom {
+  font-size: 0.8rem ;
+}
 .cardbodycustom {
   max-height: 333px;
   min-height: 333px;
