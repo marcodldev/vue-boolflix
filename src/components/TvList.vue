@@ -74,10 +74,10 @@ export default {
 };
 </script>
   
-  <style lang="scss" scoped>
+<style lang="scss" scoped>
 .cardbodycustom {
-  max-height: 300px;
-  min-height: 300px;
+  max-height: 333px;
+  min-height: 333px;
   overflow: auto;
 }
 
@@ -93,16 +93,16 @@ export default {
 
 .display {
   display: none;
-  max-height: 330px;
-  min-height: 330px;
 }
 
-.card:hover .display {
+.card:hover .display{ 
   display: block;
+  position: absolute;
+  opacity: 1;
+  height: 100%;
 }
 
-.card:hover .card-img-top {
-  display: none;
+.card :hover {
+  opacity: 0.9;
 }
-
 </style>

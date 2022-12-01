@@ -6,7 +6,7 @@
         class="card-img-top"
         alt="..."
       />
-      <div class="display">
+      <div class="display border rounded-2">
         <div class="card-body cardbodycustom">
           <h5 class="card-title">{{ card.original_title }} {{ card.name }}</h5>
           <h6>{{ card.original_title }}</h6>
@@ -75,8 +75,8 @@ export default {
 
 <style lang="scss" scoped>
 .cardbodycustom {
-  max-height: 300px;
-  min-height: 300px;
+  max-height: 333px;
+  min-height: 333px;
   overflow: auto;
 }
 
@@ -96,6 +96,9 @@ export default {
 
 .card:hover .display{ 
   display: block;
+  position: absolute;
+  opacity: 1;
+  height: 100%;
 }
 
 .card :hover {
